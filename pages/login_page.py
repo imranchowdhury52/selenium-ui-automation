@@ -6,10 +6,10 @@ class LoginPage:
 
     username_input = (By.NAME, "username")
     password_input = (By.NAME, "password")
-    login_button = (By.XPATH, "//button[@type='submit']")
+    login_button = (By.CLASS_NAME, "orangehrm-login-button")
 
     def open(self):
-        self.driver.get("https://opensource-demo.orangehrmlive.com/")
+        self.driver.get("https://opensource-demo.orangehrmlive.com/")    
 
     def login(self, username, password):
         self.driver.find_element(*self.username_input).send_keys(username)

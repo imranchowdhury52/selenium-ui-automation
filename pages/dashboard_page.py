@@ -4,7 +4,11 @@ class DashboardPage:
     def __init__(self, driver):
         self.driver = driver
 
-    dashboard_header = (By.XPATH, "//h6[text()='Dashboard']")
+    dashboard_header = (By.CLASS_NAME, "oxd-topbar-header-breadcrumb")
 
     def is_dashboard_visible(self):
-        return self.driver.find_element(*self.dashboard_header).is_displayed()
+        try:
+            return self.driver.find_element(*self.dashboard_header).is_displayed()
+            
+        except:
+            return False
